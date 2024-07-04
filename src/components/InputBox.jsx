@@ -7,6 +7,11 @@ function InputBox({
   currencyDisable=false,
   className = "",
 }) {
+  const [selectCurrency,setselectCurrency] = useState("usd")
+  const changeTheCurrency=(e)=>{
+    onCurrencyChange && onCurrencyChange(e.target.value)
+    setselectCurrency(e.target.value)
+  }
   const amountInputId = useId()//unique k liye tha
   
   return (
@@ -27,7 +32,7 @@ function InputBox({
           Currency Type
         </p>
         <select className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
-         value={selectCurrency} onChange={(e)=> onCurrencyChange && onCurrencyChange(e.target.value)}
+          onChange={changeTheCurrency} value={selectCurrency}
            disabled ={currencyDisable} 
            >
           {currencyOption.map((currency)=>(
