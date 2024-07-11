@@ -3,7 +3,7 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
@@ -14,19 +14,22 @@ function App() {
     setTo(from);
 
     setConvertedAmount(amount);
-    setAmount(convertedAmount);
+    setAmount(convertedAmount);//pehla dibba
   };
   const convert = () => {
     setConvertedAmount(amount * currencyInfo[to]);
   };
+  // https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=800
+  // https://t3.ftcdn.net/jpg/04/34/58/54/360_F_434585463_zpdtTpTEbqQFfsp6RVEW6IIxEM9dHf86.jpg
+  // https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg?auto=compress&cs=tinysrgb&w=800
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
       style={{
-        backgroundImage: `url('https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=800')`,
+        backgroundImage: `url('https://images.pexels.com/photos/421927/pexels-photo-421927.jpeg?auto=compress&cs=tinysrgb&w=800')`,
       }}
     >
-      <div className="w-full border border-gray-60">
+      <div className="w-full">
         <div
           className="w-full max-w-md mx-auto
         border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30"
@@ -55,7 +58,7 @@ function App() {
               -translate-y-1/2 border-2
               border-white rounded-md
               bg-blue-600 text-white px-2
-              py-0.5
+              y-0.5
               "
                 onClick={swap}
               >
